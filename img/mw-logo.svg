@@ -1,31 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #325153;
-      }
-
-      .cls-2, .cls-3 {
-        fill: #9bb0b1;
-      }
-
-      .cls-3 {
-        font-size: 98px;
-        font-family: Roboto-Regular, Roboto;
-      }
-    </style>
-  </defs>
-  <title>mw-logo</title>
-  <g id="Background">
-    <g>
-      <rect class="cls-1" x="4.5" y="4.5" width="191" height="191"/>
-      <path class="cls-2" d="M191,9V191H9V9H191m9-9H0V200H200V0Z"/>
-    </g>
-  </g>
-  <g id="M">
-    <text class="cls-3" transform="translate(107.6 30.56) rotate(180)">W</text>
-  </g>
-  <g id="W">
-    <text class="cls-3" transform="translate(92.6 169.56)">W</text>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#254446;}
+	.st1{fill:#CBDBDB;}
+	.st2{font-family:'Roboto-Regular';}
+	.st3{font-size:98px;}
+</style>
+<g id="Background">
+	<g>
+		<rect x="4.5" y="4.5" class="st0" width="191" height="191"/>
+		<path class="st1" d="M191,9v182H9V9H191 M200,0H0v200h200V0L200,0z"/>
+	</g>
+</g>
+<g id="M">
+	<text transform="matrix(-1 0 0 -1 107.6016 30.5586)" class="st1 st2 st3">W</text>
+</g>
+<g id="W">
+	<text transform="matrix(1 0 0 1 92.6016 169.5586)" class="st1 st2 st3">W</text>
+</g>
 </svg>
