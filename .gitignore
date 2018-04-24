@@ -8,3 +8,5 @@ package-lock\.json
 package\.json
 
 vendor/
+
+\.eslintrc\.js
