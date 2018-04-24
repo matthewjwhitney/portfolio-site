@@ -6,25 +6,13 @@ var pkg = require('./package.json');
 gulp.task('vendor', function() {
 
   // Bootstrap
-  gulp.src([
-      './node_modules/bootstrap/dist/**/*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
-      '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
-    ])
-    .pipe(gulp.dest('./vendor/bootstrap'))
+  gulp.src(['./node_modules/bootstrap/dist/**/*', '!./node_modules/bootstrap/dist/css/bootstrap-grid*', '!./node_modules/bootstrap/dist/css/bootstrap-reboot*']).pipe(gulp.dest('./vendor/bootstrap'))
 
   // jQuery
-  gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery'))
+  gulp.src(['./node_modules/jquery/dist/*', '!./node_modules/jquery/dist/core.js']).pipe(gulp.dest('./vendor/jquery'))
 
   // jQuery Easing
-  gulp.src([
-      'node_modules/jquery.easing/*.js'
-    ])
-    .pipe(gulp.dest('vendor/jquery-easing'))
+  gulp.src(['node_modules/jquery.easing/*.js']).pipe(gulp.dest('vendor/jquery-easing'))
 
 })
 
