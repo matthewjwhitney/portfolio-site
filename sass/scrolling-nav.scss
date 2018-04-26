@@ -11,3 +11,39 @@ header {
 section {
   padding: 150px 0;
 }
+
+.icon  {
+  max-width: 100%;
+  max-height: 100px;
+  margin: 5px;
+}
+
+$darkteal: rgba(37, 68, 70, 1);
+$teal: rgba(64, 121, 140, 1);
+$lightteal: rgba(220, 237, 237, 1);;
+$green: rgba(86, 118, 117, 1);
+$pink: rgba(188, 163, 172, 1);
+
+.bg-darkteal {
+  background-color: $darkteal;
+  color: $lightteal;
+}
+
+.bg-teal  {
+  background-color: $teal;
+  color: $lightteal;
+}
+.bg-lightteal {
+  background-color: $lightteal;
+  color: $darkteal;
+}
+
+.bg-green {
+  background-color: $green;
+  color: $lightteal;
+}
+
+.bg-pink {
+  background-color: $pink;
+  color: $darkteal;
+}
