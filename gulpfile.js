@@ -1,61 +1,69 @@
-var gulp = require("gulp");
-var browserSync = require("browser-sync").create();
-var sass = require("gulp-sass");
-var autoprefixer = require("gulp-autoprefixer");
+var gulp = require("gulp"),
+	browserSync = require("browser-sync").create(),
+	sass = require("gulp-sass"),
+	autoprefixer = require("gulp-autoprefixer"),
+	jasmine = require("gulp-jasmine-phantom"),
+	concat = require("gulp-concat"),
+	uglify = require("gulp-uglify"),
+	babel = require("gulp-babel"),
+	sourcemaps = require("gulp-sourcemaps"),
+	imagemin = require("gulp-imagemin");
 
-// Copy third party libraries from /node_modules into /vendor
-gulp.task("vendor", function() {
-
-	// Bootstrap
-	gulp.src([
-		"./node_modules/bootstrap/dist/**/*",
-		"!./node_modules/bootstrap/dist/css/bootstrap-grid*",
-		"!./node_modules/bootstrap/dist/css/bootstrap-reboot*"
-	])
-		.pipe(gulp.dest("./vendor/bootstrap"));
-
-	// jQuery
-	gulp.src([
-		"./node_modules/jquery/dist/*",
-		"!./node_modules/jquery/dist/core.js"
-	])
-		.pipe(gulp.dest("./vendor/jquery"));
-
-	// jQuery Easing
-	gulp.src([
-		"node_modules/jquery.easing/*.js"
-	])
-		.pipe(gulp.dest("vendor/jquery-easing"));
-
+gulp.task("default", ["styles", "copy-html", "copy-img", "scripts", "browser-sync", "watch"], function(){
 });
 
-// Default task
-gulp.task("default", ["vendor"]);
+gulp.task("watch", ["browser-sync"], function() {
 
-// Configure the browserSync task
-gulp.task("browserSync", function() {
+	gulp.watch("src/img/*", ["copy-img", browserSync.reload]);
+	gulp.watch("src/index.html", ["copy-html", browserSync.reload]);
+	gulp.watch("src/sass/**/*.scss", ["styles", browserSync.reload]);
+	gulp.watch("src/js/**/*.js", ["scripts", browserSync.reload]);
+});
+
+gulp.task("browser-sync", function(){
 	browserSync.init({
 		server: {
-			baseDir: "./"
+			baseDir: "dist/"
 		}
 	});
 });
 
-// Dev task
-gulp.task("dev", ["browserSync"], function() {
-	gulp.watch("./sass/**/*.scss", ["styles"]);
-	gulp.watch("./css/*.css", browserSync.reload);
-	gulp.watch("./js/*.js", browserSync.reload);
-	gulp.watch("./*.html", browserSync.reload);
-});
-
-// Sass task
 gulp.task("styles", function () {
-	return gulp.src("./sass/**/*.scss")
-		.pipe(sass().on("error", sass.logError))
+	return gulp.src("src/sass/**/*.scss")
+		.pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
 		.pipe(autoprefixer({
 			browsers: ["last 2 versions"],
 			cascade: false
 		}))
-		.pipe(gulp.dest("./css"));
+		.pipe(gulp.dest("dist/css"));
+});
+
+gulp.task("copy-html", function() {
+	return gulp.src("src/index.html")
+		.pipe(gulp.dest("./dist"));
+
+});
+
+gulp.task("scripts", function() {
+	return gulp.src("src/js/**/*.js")
+		.pipe(babel())
+		.pipe(sourcemaps.init())
+		.pipe(concat("all.js"))
+		.pipe(uglify())
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest("dist/js"));
+});
+
+gulp.task("copy-img", function() {
+	return gulp.src("src/img/*")
+		.pipe(imagemin())
+		.pipe(gulp.dest("dist/img"));
+});
+
+gulp.task("tests", function() {
+	gulp.src("tests/spec/extraSpec.js")
+		.pipe(jasmine({
+			integration: true,
+			vendor: "src/js/**/*.js"
+		}));
 });
