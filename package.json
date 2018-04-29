@@ -1,8 +1,7 @@
 {
     "title": "Matthew J. Whitney - Portfolio Site",
     "name": "portfolio-site",
-    "version": "4.0.0",
-    "description": "A smooth scrolling navigation HTML template built with Bootstrap",
+    "description": "A smooth scrolling navigation built with Bootstrap",
     "keywords": [
         "css",
         "sass",
