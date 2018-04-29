@@ -1,6 +1,6 @@
 {
-    "title": "Scrolling Nav",
-    "name": "startbootstrap-scrolling-nav",
+    "title": "Matthew J. Whitney - Portfolio Site",
+    "name": "portfolio-site",
     "version": "4.0.0",
     "description": "A smooth scrolling navigation HTML template built with Bootstrap",
     "keywords": [
@@ -8,22 +8,13 @@
         "sass",
         "html",
         "responsive",
-        "theme",
-        "template"
+        "javascript"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/scrolling-nav",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/issues",
-        "email": "feedback@startbootstrap.com"
-    },
-    "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
+    "homepage": "https://www.matthewjwhitney.com",
+    "author": "Matthew J. Whitney",
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-scrolling-nav.git"
+        "url": "https://github.com/matthewjwhitney/portfolio-site.git"
     },
     "dependencies": {
         "ajv": "^6.4.0",
